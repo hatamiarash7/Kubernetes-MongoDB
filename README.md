@@ -7,7 +7,8 @@ You should disable THP ( transparent huge pages ). There is many ways to do that
 * Write a startup script using `gcr.io/google-containers/startup-script`
 * Use `busybox` image and make DaemonSet to do this in all deployments.
 
-This one is not a critical problem. `gcr.io/google-containers/startup-scriptis` 12.5MB, but since we are essentially just running a shell script, it can be changed to a slimmer image, like `busybox` which has an image size of 1.15MB. Of course `busybox` is lacking the startup functionality of `gcr.io/google-containers/startup-script`. For this we can utilize `initContainers` which were unavailable at the time.
+This one is not a critical problem. `gcr.io/google-containers/startup-scriptis` **12.5MB**, but since we are essentially just running a shell script, it can be changed to a slimmer image, like `busybox` which has an image size of **1.15MB**.  
+`busybox` is lacking the startup functionality of `gcr.io/google-containers/startup-script`. For this we can utilize `initContainers` which were unavailable at the time.
 
 Use [this one](https://gist.github.com/hatamiarash7/ae7fcc9c7155722df77ebbf459d467f5)
 
